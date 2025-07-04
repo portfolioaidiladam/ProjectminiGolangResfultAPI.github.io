@@ -1,0 +1,285 @@
+{
+  "openapi": "3.0.3",
+  "x-comment": "Versi OpenAPI yang digunakan untuk spesifikasi ini.",
+  "info": {
+    "title": "Category RESTful API",
+    "x-comment": "Judul API.",
+    "description": "API Spec for Category RESTful API",
+    "x-comment-description": "Deskripsi singkat API.",
+    "version": "1.0.0",
+    "x-comment-version": "Versi API."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api",
+      "x-comment": "URL server utama untuk API."
+    }
+  ],
+  "paths": {
+    "/categories": {
+      "x-comment": "Endpoint utama untuk resource kategori.",
+      "get": {
+        "x-comment": "Ambil semua kategori.",
+        "security": [
+          {
+            "CategoryAuth": []
+          }
+        ],
+        "tags": ["Category API"],
+        "description": "List all Categories",
+        "summary": "List all Categories",
+        "responses": {
+          "200": {
+            "description": "Success get all categories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number",
+                      "x-comment": "Kode status response (misal: 200)."
+                    },
+                    "status": {
+                      "type": "string",
+                      "x-comment": "Status response (misal: 'OK')."
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Category"
+                      },
+                      "x-comment": "Array data kategori."
+                    }
+                  },
+                  "x-comment": "Struktur response sukses get all categories."
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "x-comment": "Buat kategori baru.",
+        "security": [
+          {
+            "CategoryAuth": []
+          }
+        ],
+        "tags": ["Category API"],
+        "description": "Create new Category",
+        "summary": "Create new Category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrUpdateCategory"
+              }
+            }
+          },
+          "x-comment": "Body request untuk membuat kategori baru."
+        },
+        "responses": {
+          "200": {
+            "description": "Success Create Category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Category"
+                    }
+                  },
+                  "x-comment": "Struktur response sukses create category."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories/{categoryId}": {
+      "x-comment": "Endpoint untuk operasi berdasarkan ID kategori.",
+      "get": {
+        "x-comment": "Ambil kategori berdasarkan ID.",
+        "security": [
+          {
+            "CategoryAuth": []
+          }
+        ],
+        "tags": ["Category API"],
+        "summary": "Get category by Id",
+        "description": "Get category by id",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "Category Id",
+            "x-comment": "Parameter path untuk ID kategori."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success get category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Category"
+                    }
+                  },
+                  "x-comment": "Struktur response sukses get category by id."
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "x-comment": "Update kategori berdasarkan ID.",
+        "security": [
+          {
+            "CategoryAuth": []
+          }
+        ],
+        "tags": ["Category API"],
+        "summary": "Update category by Id",
+        "description": "Update category by Id",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "Category Id",
+            "x-comment": "Parameter path untuk ID kategori."
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOrUpdateCategory"
+              }
+            }
+          },
+          "x-comment": "Body request untuk update kategori."
+        },
+        "responses": {
+          "200": {
+            "description": "Success get category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Category"
+                    }
+                  },
+                  "x-comment": "Struktur response sukses update category."
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "x-comment": "Hapus kategori berdasarkan ID.",
+        "security": [
+          {
+            "CategoryAuth": []
+          }
+        ],
+        "tags": ["Category API"],
+        "summary": "Delete category by Id",
+        "description": "Delete category by id",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "Category Id",
+            "x-comment": "Parameter path untuk ID kategori."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success delete category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  },
+                  "x-comment": "Struktur response sukses delete category."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "CategoryAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key",
+        "description": "Authentication for Category API",
+        "x-comment": "Skema autentikasi menggunakan API Key di header."
+      }
+    },
+    "schemas": {
+      "CreateOrUpdateCategory": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-comment": "Nama kategori."
+          }
+        },
+        "x-comment": "Skema untuk membuat/ubah kategori."
+      },
+      "Category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "x-comment": "ID unik kategori."
+          },
+          "name": {
+            "type": "string",
+            "x-comment": "Nama kategori."
+          }
+        },
+        "x-comment": "Skema data kategori."
+      }
+    }
+  }
+}
