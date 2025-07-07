@@ -1,8 +1,8 @@
 package helper
 
 import (
-	"programmerzamannow/belajar-golang-restful-api/model/domain"
-	"programmerzamannow/belajar-golang-restful-api/model/web"
+	"aidiladam/belajar-golang-restful-api/model/domain"
+	"aidiladam/belajar-golang-restful-api/model/web"
 )
 
 // ToCategoryResponse mengkonversi domain Category menjadi web CategoryResponse.

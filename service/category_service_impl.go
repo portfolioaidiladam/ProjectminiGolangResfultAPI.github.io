@@ -1,13 +1,13 @@
 package service
 
 import (
+	"aidiladam/belajar-golang-restful-api/exception"
+	"aidiladam/belajar-golang-restful-api/helper"
+	"aidiladam/belajar-golang-restful-api/model/domain"
+	"aidiladam/belajar-golang-restful-api/model/web"
+	"aidiladam/belajar-golang-restful-api/repository"
 	"context"
 	"database/sql"
-	"programmerzamannow/belajar-golang-restful-api/exception"
-	"programmerzamannow/belajar-golang-restful-api/helper"
-	"programmerzamannow/belajar-golang-restful-api/model/domain"
-	"programmerzamannow/belajar-golang-restful-api/model/web"
-	"programmerzamannow/belajar-golang-restful-api/repository"
 
 	"github.com/go-playground/validator/v10"
 )

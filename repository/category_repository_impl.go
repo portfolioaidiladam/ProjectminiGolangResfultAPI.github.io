@@ -1,11 +1,11 @@
 package repository
 
 import (
+	"aidiladam/belajar-golang-restful-api/helper"
+	"aidiladam/belajar-golang-restful-api/model/domain"
 	"context"
 	"database/sql"
 	"errors"
-	"programmerzamannow/belajar-golang-restful-api/helper"
-	"programmerzamannow/belajar-golang-restful-api/model/domain"
 )
 
 // CategoryRepositoryImpl adalah implementasi dari interface CategoryRepository untuk operasi data kategori.

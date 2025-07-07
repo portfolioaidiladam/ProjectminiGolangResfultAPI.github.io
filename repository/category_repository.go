@@ -1,9 +1,9 @@
 package repository
 
 import (
+	"aidiladam/belajar-golang-restful-api/model/domain"
 	"context"
 	"database/sql"
-	"programmerzamannow/belajar-golang-restful-api/model/domain"
 )
 
 // CategoryRepository adalah kontrak repository untuk operasi data kategori.

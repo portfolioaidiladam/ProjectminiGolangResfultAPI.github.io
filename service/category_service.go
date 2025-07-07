@@ -1,8 +1,8 @@
 package service
 
 import (
+	"aidiladam/belajar-golang-restful-api/model/web"
 	"context"
-	"programmerzamannow/belajar-golang-restful-api/model/web"
 )
 
 // CategoryService adalah kontrak service untuk operasi bisnis kategori.
