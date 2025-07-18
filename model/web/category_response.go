@@ -4,5 +4,5 @@ package web
 type CategoryResponse struct {
 	// Id adalah identitas unik kategori
 	Id int `json:"id"`
-	// Name adalah nama kategori
+	// Name adalah nama kategori.
 }
